@@ -120,7 +120,7 @@
         }
       }
     },
-    "ClickTracker": {
+    "click-tracker": {
       "projectType": "library",
       "root": "projects/click-tracker",
       "sourceRoot": "projects/click-tracker/src",

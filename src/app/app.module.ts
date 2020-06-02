@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { ClickTrackerModule } from 'click-tracker';
+
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -8,8 +10,10 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ClickTrackerModule
   ],
+  exports: [ClickTrackerModule],
   providers: [],
   bootstrap: [AppComponent]
 })
