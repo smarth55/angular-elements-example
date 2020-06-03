@@ -26,7 +26,7 @@ export class ClickTrackerComponent implements OnInit {
   }
 
   increment() {
-    this.clicks = this.clicks + this.step;
+    this.clicks = this.clicks + (+this.step);
     this.increase.emit({numClicks: this.clicks});
   }
 }
