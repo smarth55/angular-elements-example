@@ -8,7 +8,13 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-  <ct-click-tracker></ct-click-tracker>
+  <ct-click-tracker step="5"></ct-click-tracker>
   <script src="ct-element.js"></script>
+  <script>
+    const ctElm = document.querySelector('ct-click-tracker');
+    ctElm.addEventListener('increase', (event) => {
+      console.log(event.detail);
+    });
+  </script>
 </body>
 </html>
