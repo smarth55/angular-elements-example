@@ -1,16 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
+import { NgModule, Injector } from '@angular/core';
+import { createCustomElement } from '@angular/elements';
+import { ClickTrackerModule, ClickTrackerComponent } from 'click-tracker';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ClickTrackerModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: []
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private injector: Injector) { }
+
+  ngDoBootstrap() {
+    const ClickTrackerElm = createCustomElement(ClickTrackerComponent, {injector: this.injector});
+    customElements.define('ct-click-tracker', ClickTrackerElm);
+  }
+}
