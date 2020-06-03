@@ -7,7 +7,12 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build-lib": "ng build click-tracker --tsConfig=projects/click-tracker/tsconfig.lib.prod.json",
+    "build-element": "ng build click-tracker-element --aot --buildOptimizer --extractCss --extractLicenses --no-namedChunks --optimization --no-sourceMap --no-vendorChunk",
+    "compile-element": "cat dist/click-tracker-element/runtime-es5.js dist/click-tracker-element/polyfills-es5.js dist/click-tracker-element/main-es5.js > dist/ct-element.js",
+    "move-compiled-element": "cp dist/ct-element.js vanilla-app/.",
+    "build-all": "npm run build-lib && npm run build-element && npm run compile-element && npm run move-compiled-element"
   },
   "private": true,
   "dependencies": {
